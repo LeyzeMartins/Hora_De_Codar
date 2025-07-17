@@ -30,15 +30,18 @@ int main() {
 
     // Calcula a média das três notas
     media = (nota1 + nota2 + nota3) / 3;
-     
+
+     // Verifica se a média é maior ou igual a 9 (Aprovado com Excelência)
     if (media > 9)
     {
         printf("Aprovado com Excelência: \n");
     } 
+    // Verifica se a média é maior ou igual a 6 (Recuperação)
      else if (media >= 6 && media <=9)
      {
         printf("Esta em Recuperação: \n");
      }
+     // Caso a média seja menor que 6 (Reprovado)
      else
      {
         printf("Reprovado: \n");
