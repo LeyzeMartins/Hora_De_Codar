@@ -1,27 +1,31 @@
+#include <stdio.h>  // Inclusão da biblioteca padrão para entrada e saída
 
-# include <stdio.h>
+int main() {
 
-int main(){
+    // Declaração das variáveis para armazenar as três notas e a média
+    float nota1, nota2, nota3;
+    float media;
 
-   float nota1, nota2, nota3;
+    // Exibe o título do programa
+    printf("** PROGRAMA CALCULAR MEDIA DOS ALUNOS **\n");
 
-   float media;
-   
+    // Solicita e lê a primeira nota do aluno
+    printf("Digite a primeira nota:\n");
+    scanf("%f", &nota1);
 
-    printf("Digite a primera nota\n");
-    scanf("%f",&nota1);
-
+    // Solicita e lê a segunda nota do aluno
     printf("Digite a segunda nota:\n");
-    scanf("%f",&nota2); 
+    scanf("%f", &nota2); 
 
+    // Solicita e lê a terceira nota do aluno
     printf("Digite a terceira nota:\n");
-    scanf("%f",&nota3);
+    scanf("%f", &nota3);
 
-
+    // Calcula a média das três notas
     media = (nota1 + nota2 + nota3) / 3;
 
-    printf("A media das notas e: %.2f \n", media);
+    // Exibe a média formatada com duas casas decimais
+    printf("A média das notas é: %.2f\n", media);
 
-    return 0;
-
+    return 0; // Encerra o programa com sucesso
 }
