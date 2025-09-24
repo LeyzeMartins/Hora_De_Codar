@@ -54,12 +54,12 @@ int main() {
                 printf("%s\n", (aposta_usuario == 1 ? "VOCÊ GANHOU! Você apostou em MAIOR." : "VOCÊ PERDEU! O resultado foi MAIOR, mas você não apostou nisso."));
                 // Revela o resultado detalhado
                printf("--> Detalhes: Seu número (%d) foi MAIOR que o do computador (%d).\n", num_jogador, num_computador);
-               printf("Parabéns! O número da rodada foi o seu: %d\n", num_jogador);   
+                 
             // 2. SENÃO, SE foi MENOR
             } else if (num_jogador < num_computador) {
                 printf("%s\n", (aposta_usuario == 2 ? "VOCÊ GANHOU! Você apostou em MENOR." : "VOCÊ PERDEU! O resultado foi MENOR, mas você não apostou nisso."));
                 printf("--> Detalhes: Seu número (%d) foi MENOR que o do computador (%d).\n", num_jogador, num_computador);
-            
+                
             // 3. SENÃO, só pode ser IGUAL
             } else { 
                 printf("%s\n", (aposta_usuario == 3 ? "EMPATE! Você apostou em IGUAL." : "VOCÊ PERDEU! O resultado foi IGUAL, mas sua aposta foi 'Maior' ou 'Menor'."));
