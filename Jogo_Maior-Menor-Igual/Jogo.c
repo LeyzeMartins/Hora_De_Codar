@@ -1,120 +1,94 @@
-
 #include <stdio.h>
-#include<stdlib.h>
-#include <time.h>
+#include <stdlib.h> // Biblioteca para srand() e rand()
+#include <time.h>   // Biblioteca para time()
 
-int main(){
+int main() {
+    // --- PREPARAÇÃO ---
+    // Variáveis que guardam as informações do jogo
+    int num_jogador;
+    int num_computador;
+    int opcao_menu;
+    int aposta_usuario;
 
+    // Inicializa o gerador de números aleatórios (essencial!)
+    srand(time(NULL));
 
-     int num_jogador;
-     int num_computador;
-     int opcao_menu;
-     int aposta_usuario;
-    
-        printf("◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈\n");
-        printf("🔰🔰 Bem Vindo ao Jogo Maior ▲ Menor ▼ ou Igual ⇌ 🔰🔰\n");
-        printf("◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈◈\n\n");
-        printf("MENU PRINCIPAL:\n");
-        printf("[1] Iniciar Jogo\n");
-        printf("[2] Ver as Regras\n");
-        printf("[3] Sair \n");
-        printf("Por favor, digite sua escolha: ");
+    // --- MENU PRINCIPAL ---
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n");
+    printf("🔰🔰 Bem Vindo ao Jogo: Maior ▲ Menor ▼ ou Igual ⇌ 🔰🔰\n");
+    printf("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n");
+    printf("MENU PRINCIPAL:\n");
+    printf("[1] Iniciar Jogo\n");
+    printf("[2] Ver as Regras\n");
+    printf("[3] Sair \n\n");
+    printf("Por favor, digite sua escolha: ");
 
-        scanf("%d", &opcao_menu);
+    scanf("%d", &opcao_menu);
 
+    // --- DECISÃO DO MENU ---
+    switch (opcao_menu) {
+        // Se o usuário digitou 1, o jogo começa
+        case 1:
+            // -- PARTE 1: COLETA DE DADOS DO JOGADOR --
+            printf("\n--- FAÇA SUA APOSTA ---\n");
+            printf("[1] Meu número será MAIOR que o do computador\n");
+            printf("[2] Meu número será MENOR que o do computador\n");
+            printf("[3] Meu número será IGUAL ao do computador\n");
+            printf("Sua aposta: ");
+            scanf("%d", &aposta_usuario);
+            
+            printf("\n--- ESCOLHA SEU NÚMERO ---\n");
+            printf("Digite um numero de 1 a 100: ");
+            scanf("%d", &num_jogador);
 
-   switch (opcao_menu)
-   {
-   case 1:
-              
-              printf("[1] Maior ▲\n");
-              printf("[2] Menor ▼\n");
-              printf("[3] Igual ⇌\n");
-              printf("Sua aposta:\n ");
-              scanf("%d", &aposta_usuario);
-              
-              printf("Digite um numero de 1 a 100:\n");
-              scanf("%d",&num_jogador);
-              int num_computador = (rand() % 100) + 1;
+            // -- PARTE 2: A JOGADA DO COMPUTADOR --
+            num_computador = (rand() % 100) + 1;
 
-               if (num_jogador > num_computador  ){
-                    
-                   if (aposta_usuario == 1){
+            printf("\n------------------ RESULTADO ------------------\n");
 
-                         printf("VOCÊ GANHOU! Apostou em MAIOR e seu número foi o maior!\n");
-               }else{
-                         printf("VOCÊ PERDEU!\n");
+            // -- PARTE 3: O CÉREBRO DO JOGO (COM OPERADOR TERNÁRIO) --
+            
+            // 1. Checa se o número do jogador foi MAIOR
+            if (num_jogador > num_computador) {
+                // O ternário decide a mensagem de vitória/derrota
+                printf("%s\n", (aposta_usuario == 1 ? "VOCÊ GANHOU! Você apostou em MAIOR." : "VOCÊ PERDEU! O resultado foi MAIOR, mas você não apostou nisso."));
+                // Revela o resultado detalhado
+               printf("--> Detalhes: Seu número (%d) foi MAIOR que o do computador (%d).\n", num_jogador, num_computador);
+               printf("Parabéns! O número da rodada foi o seu: %d\n", num_jogador);   
+            // 2. SENÃO, SE foi MENOR
+            } else if (num_jogador < num_computador) {
+                printf("%s\n", (aposta_usuario == 2 ? "VOCÊ GANHOU! Você apostou em MENOR." : "VOCÊ PERDEU! O resultado foi MENOR, mas você não apostou nisso."));
+                printf("--> Detalhes: Seu número (%d) foi MENOR que o do computador (%d).\n", num_jogador, num_computador);
+            
+            // 3. SENÃO, só pode ser IGUAL
+            } else { 
+                printf("%s\n", (aposta_usuario == 3 ? "EMPATE! Você apostou em IGUAL." : "VOCÊ PERDEU! O resultado foi IGUAL, mas sua aposta foi 'Maior' ou 'Menor'."));
+                printf("--> Detalhes: Seu número (%d) foi IGUAL ao do computador (%d).\n", num_jogador, num_computador);
+            }
+            printf("---------------------------------------------\n");
+            break; // Fim do case 1
 
-                  }if(num_jogador < num_computador){
+        // Se o usuário digitou 2, mostra as regras
+        case 2:
+            printf("\n--- REGRAS DO JOGO ---\n");
+            printf("1. Aposte se seu número será MAIOR, MENOR ou IGUAL ao do computador.\n");
+            printf("2. Escolha um número de 1 a 100.\n");
+            printf("3. O computador sorteará o número dele.\n");
+            printf("4. Para ganhar, sua aposta tem que corresponder ao resultado real!\n");
+            break;
 
-                      }if (aposta_usuario == 2){
+        // Se o usuário digitou 3, encerra o jogo
+        case 3:
+            printf("\nObrigado por jogar! Até a próxima!\n");
+            break;
 
-                         printf("VOCÊ GANHOU! Apostou em MENOR e seu número foi o menor!\n");
+        // Se digitou qualquer outra coisa, avisa que é inválido
+        default:
+            printf("\nOpção inválida! Por favor, escolha uma opção de 1 a 3.\n");
+            break;
+    }
 
-               }else{
-                        printf("VOCÊ PERDEU!\n");
-                        
-                    }if (num_jogador == num_computador){
-                         
-                      }if (aposta_usuario == 3){
+    printf("\nFim do programa.\n");
 
-                         printf("VOCÊ GANHOU! Apostou em IGUAL e seu número foi o Igual!\n");
-
-               }else{
-                         printf("VOCÊ PERDEU!");
-               }
-               
-
-
-               }
-              
-                
-                
-        break;
-   case 2:
-               
-                
-                
-
-
-
-        break;
-   case 3:
-        break;   
-        
-        
-   default:
-        break;
-   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return 0;
 }
