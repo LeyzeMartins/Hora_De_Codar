@@ -51,20 +51,20 @@ int main(){
 
                          printf("VOCÊ GANHOU! Apostou em MENOR e seu número foi o menor!\n");
 
-                 }else{
-                        printf("VOCÊ PERDEU!");
+               }else{
+                        printf("VOCÊ PERDEU!\n");
                         
                     }if (num_jogador == num_computador){
                          
-                      }if (aposta_usuario == 3)
-                    {
-                         printf("");
-                    }
-                    
-                      
+                      }if (aposta_usuario == 3){
+
+                         printf("VOCÊ GANHOU! Apostou em IGUAL e seu número foi o Igual!\n");
+
+               }else{
+                         printf("VOCÊ PERDEU!");
+               }
                
-              
-               
+
 
                }
               
