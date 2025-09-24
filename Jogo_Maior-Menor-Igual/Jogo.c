@@ -88,7 +88,7 @@ int main() {
             break;
     }
 
-    printf("\n■■■■ Fim do programa.■■■■\n");
+    printf("\n■■■■Fim do programa■■■■\n");
 
     return 0;
 }
