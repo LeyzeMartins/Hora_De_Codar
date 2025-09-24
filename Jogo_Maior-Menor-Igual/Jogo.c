@@ -70,8 +70,8 @@ int main() {
 
         // Se o usuário digitou 2, mostra as regras
         case 2:
-            printf("\n--- REGRAS DO JOGO ---\n");
-            printf("1. Aposte se seu número será MAIOR, MENOR ou IGUAL ao do computador.\n");
+            printf("\n■■■■■**REGRAS DO JOGO**■■■■■\n");
+            printf("1. Aposte se seu número será MAIOR ▲, MENOR ▼ ou IGUAL ⇌ ao do computador.\n");
             printf("2. Escolha um número de 1 a 100.\n");
             printf("3. O computador sorteará o número dele.\n");
             printf("4. Para ganhar, sua aposta tem que corresponder ao resultado real!\n");
@@ -88,7 +88,7 @@ int main() {
             break;
     }
 
-    printf("\nFim do programa.\n");
+    printf("\n■■■■ Fim do programa.■■■■\n");
 
     return 0;
 }
